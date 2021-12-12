@@ -1,0 +1,76 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 16,
+    "workbench.iconTheme": "material-icon-theme",
+    "eslint.codeAction.showDocumentation": {  
+        "enable": true
+    },
+    "prettier.configPath": ".prettierrc",
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+    "files.associations": {
+        "*.js": "javascript"
+    },
+    "git.autofetch": true,
+    "vsicons.dontShowNewVersionMessage": true,
+    "gitlens.advanced.messages": {
+        "suppressCreatePullRequestPrompt": true
+    },
+    "terminal.integrated.fontFamily": "monospace",
+    "gitlens.defaultDateFormat": null,
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript|react]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript|react]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[less]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+      "todohighlight.isEnable": true,
+      "terminal.integrated.tabs.enabled": true,
+      "liveServer.settings.donotShowInfoMsg": true,
+      "typescript.updateImportsOnFileMove.enabled": "always",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+      "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+          80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false
+      },
+      "security.workspace.trust.untrustedFiles": "open",
+      "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+      },
+      "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+      },
+      "editor.suggestSelection": "first",
+      "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+      "[postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      },
+      "git.confirmSync": false,
+
+      "editor.formatOnSave": true,
+      "vetur.validation.template": false,
+}

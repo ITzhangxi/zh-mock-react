@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# 代码冲突
+result=$(git --no-pager diff HEAD --check | grep "conflict")
+if [[ "$result" != "" ]]; then
+    echo Resolve code conflicts, $result,$?
+    exit 1
+fi
+
+# eslint staged
+INFO='\033[36m'
+NOR='\033[0m'
+log=$(git diff --staged --name-only | egrep "^src/")
+if [ -z "${log}" ]; then
+    echo -e "${INFO}No file changed, exit now ${NOR}"
+    exit 0
+fi
+# TODO: 待优化
+npx eslint --fix --ext .js,.vue $log --cache
+a=$(npx eslint --fix --ext .js,.vue $log --cache | egrep "[1-9]\d*\s*problems?\s\([1-9]\d*\s*errors?\,\s*\d*\s*warnings?")
+if [ -n "${a}" ]; then
+    exit 1
+fi
+
+npx lint-staged --allow-empty
