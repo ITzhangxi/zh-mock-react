@@ -9,9 +9,12 @@
     "lib": ["dom", "dom.iterable", "esnext"], // List of library files to be included in the compilation
     "baseUrl": ".",
     "paths": {
-      "*": ["src/*"],
-      "@/*": ["node_modules/@hll/act3-comon-logic/dist/*"],
-      "$ui/*": ["node_modules/@hll/act3-ui-templates-x/dist/esm/*"]
+      "@": ["src/*"],
+      "panel": ["src/panel/*"],
+      "background": ["src/background/*"],
+      "content_script": ["src/content_script/*"],
+      "devtools": ["src/devtools/*"],
+      "popup": ["src/popup/*"]
     },
     "allowJs": true, // Allow JavaScript files to be compiled
     "skipLibCheck": true, // Skip type checking of all declaration files

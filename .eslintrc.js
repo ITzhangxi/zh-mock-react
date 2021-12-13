@@ -13,6 +13,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true, // Allows for the parsing of JSX
     },
+    warnOnUnsupportedTypeScriptVersion: false,
   },
 
   plugins: ['react-hooks' /* "redux-saga" */],

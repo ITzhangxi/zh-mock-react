@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "zh-mock",
+  "version": ".0.0",
+  "description": "这是一个为前端程序员API调试的快捷MOCK工具",
+  "icons": {
+    "6": "icon.png",
+    "48": "icon.png",
+    "28": "icon.png"
+  },
+  "background": {
+    "page": "background/index.html"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "这是一个为前端程序员API调试的快捷MOCK工具",
+    "default_popup": "popup/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content_script/index.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": ["storage"],
+  "web_accessible_resources": ["inject/index.js", "inject/proxy_ajax.js"],
+  "homepage_url": "",
+  "default_locale": "zh_CN",
+  "devtools_page": "devtools/index.html"
+}

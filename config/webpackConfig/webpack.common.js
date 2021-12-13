@@ -1,29 +1,19 @@
 import paths from './paths';
-import webpack from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from 'eslint-webpack-plugin';
 import ReactRefreshTypeScript from 'react-refresh-typescript';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
-import { HtmlWebpackPluginOptions } from './config';
-// import RUNTIME_CONFIG from './utils/webpack.runtime.config';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import CopyManifestWebpackPlugin from './plugins/CopyManifestWebpackPlugin';
 
 const config = {
-  target: 'web',
-  mode: 'development',
-  devtool: 'inline-source-map',
   entry: {
     panel: paths.panelTsx,
-    background: paths.backgroundTS,
-    content_script: paths.content_scriptTS,
-    devtools: paths.devtoolsTS,
-    popup: paths.popupTSX,
   },
   output: {
     filename: (chunkData) => {
-      const chunkName = chunkData.chunk.name;
-      const name = chunkName.startsWith('runtime-') ? chunkName.substr(8) : chunkName;
-      return !name === 'panel' ? `js/${name}.js` : `js/${name}.[contenthash:8].js`;
+      const name = chunkData.chunk.name;
+      return name !== 'panel' ? `js/${name}.js` : `js/${name}.[contenthash:8].js`;
     },
     path: paths.output,
   },
@@ -32,17 +22,7 @@ const config = {
     alias: {
       '@': paths.src,
       panel: paths.panel,
-      background: paths.background,
-      content_script: paths.content_script,
-      devtools: paths.devtools,
-      popup: paths.panel,
     },
-  },
-  devServer: {
-    compress: true,
-    hot: true,
-    host: '0.0.0.0',
-    port: 9090,
   },
   module: {
     rules: [
@@ -145,26 +125,8 @@ const config = {
     new ForkTsCheckerWebpackPlugin({
       async: false,
     }),
-    new HtmlWebpackPlugin(
-      Object.assign(
-        { HtmlWebpackPluginOptions },
-        {
-          chunks: ['panel'],
-          template: paths.panelHtml,
-          filename: 'panel/index.html',
-        }
-      )
-    ),
-    new HtmlWebpackPlugin(
-      Object.assign(
-        { HtmlWebpackPluginOptions },
-        {
-          chunks: ['panel'],
-          template: paths.popupHtml,
-          filename: 'popup/index.html',
-        }
-      )
-    ),
+    new CleanWebpackPlugin(),
+    new CopyManifestWebpackPlugin(),
   ],
 };
 export default config;

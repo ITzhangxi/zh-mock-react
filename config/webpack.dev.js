@@ -1,5 +1,6 @@
 'use strict';
 
+var webpackMerge = require('webpack-merge');
 var path = require('path');
 var fs = require('fs');
 var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
@@ -8,6 +9,7 @@ var ReactRefreshTypeScript = require('react-refresh-typescript');
 var ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 var cleanWebpackPlugin = require('clean-webpack-plugin');
 var child_process = require('child_process');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -18,6 +20,7 @@ var ESLintPlugin__default = /*#__PURE__*/_interopDefaultLegacy(ESLintPlugin);
 var ReactRefreshTypeScript__default = /*#__PURE__*/_interopDefaultLegacy(ReactRefreshTypeScript);
 var ReactRefreshWebpackPlugin__default = /*#__PURE__*/_interopDefaultLegacy(ReactRefreshWebpackPlugin);
 var child_process__default = /*#__PURE__*/_interopDefaultLegacy(child_process);
+var HtmlWebpackPlugin__default = /*#__PURE__*/_interopDefaultLegacy(HtmlWebpackPlugin);
 
 const appDirectory = fs__default["default"].realpathSync(process.cwd());
 const resolveApp = (relativePath) => path__default["default"].resolve(appDirectory, relativePath);
@@ -62,7 +65,7 @@ class ConsoleLogOnBuildWebpackPlugin {
   }
 }
 
-const config = {
+const config$3 = {
   entry: {
     panel: paths.panelTsx,
   },
@@ -186,4 +189,102 @@ const config = {
   ],
 };
 
-module.exports = config;
+const config$2 = {
+  entry: {
+    background: paths.backgroundTS,
+    content_script: paths.content_scriptTS,
+    devtools: paths.devtoolsTS,
+  },
+  resolve: {
+    alias: {
+      background: paths.background,
+      content_script: paths.content_script,
+      devtools: paths.devtools,
+    },
+  },
+};
+
+const HtmlWebpackPluginOptions = {
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true,
+  },
+  inject: true,
+};
+
+const config$1 = {
+  entry: {
+    panel: paths.panelTsx,
+    popup: paths.popupTSX,
+    background: paths.backgroundTSX,
+  },
+  resolve: {
+    alias: {
+      panel: paths.panel,
+      popup: paths.popup,
+      background: paths.background,
+    },
+  },
+  plugins: [
+    new HtmlWebpackPlugin__default["default"](
+      Object.assign(
+        { HtmlWebpackPluginOptions },
+        {
+          chunks: ['popup'],
+          template: paths.popupHtml,
+          filename: 'popup/index.html',
+        }
+      )
+    ),
+    new HtmlWebpackPlugin__default["default"](
+      Object.assign(
+        { HtmlWebpackPluginOptions },
+        {
+          chunks: ['panel'],
+          template: paths.panelHtml,
+          filename: 'panel/index.html',
+        }
+      )
+    ),
+    new HtmlWebpackPlugin__default["default"](
+      Object.assign(
+        { HtmlWebpackPluginOptions },
+        {
+          chunks: ['background'],
+          template: paths.backgroundHtml,
+          filename: 'background/index.html',
+        }
+      )
+    ),
+  ],
+};
+
+const config = {
+  target: 'web',
+  mode: 'development',
+  devtool: 'inline-source-map',
+  devServer: {
+    compress: true,
+    hot: true,
+    host: '0.0.0.0',
+    port: 9090,
+    client: {
+      progress: true,
+    },
+    devMiddleware: {
+      writeToDisk: true,
+    },
+  },
+};
+
+var webpack_dev = webpackMerge.merge(config$3, config$2, config$1, config);
+
+module.exports = webpack_dev;

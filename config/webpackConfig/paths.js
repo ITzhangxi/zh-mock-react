@@ -7,10 +7,11 @@ const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 export default {
   // 文件
   panelTsx: resolveApp('src/panel/index.tsx'),
+  backgroundTSX: resolveApp('src/background/index.tsx'),
   popupTSX: resolveApp('src/popup/index.tsx'),
+  devtoolsTS: resolveApp('src/devtools/index.ts'),
   backgroundTS: resolveApp('src/background/index.ts'),
   content_scriptTS: resolveApp('src/content_script/index.ts'),
-  devtoolsTS: resolveApp('src/devtools/index.ts'),
 
   // 文件夹
   src: resolveApp('src'),
@@ -20,8 +21,10 @@ export default {
   devtools: resolveApp('src/devtools'),
   popup: resolveApp('src/popup'),
   output: resolveApp('chromeExtension'),
+  chromeImg: resolveApp('src/img'),
 
   // html temp
   panelHtml: resolveApp('src/panel/index.html'),
   popupHtml: resolveApp('src/popup/index.html'),
+  backgroundHtml: resolveApp('src/background/index.html'),
 };
