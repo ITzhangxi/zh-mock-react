@@ -35,6 +35,7 @@ const config = {
           chunks: ['panel'],
           template: paths.panelHtml,
           filename: 'panel/index.html',
+          publicPath: '../',
         }
       )
     ),
@@ -45,6 +46,7 @@ const config = {
           chunks: ['background'],
           template: paths.backgroundHtml,
           filename: 'background/index.html',
+          publicPath: '../',
         }
       )
     ),
@@ -55,6 +57,7 @@ const config = {
           chunks: ['devtools'],
           template: paths.devtoolsHtml,
           filename: 'devtools/index.html',
+          publicPath: '../',
         }
       )
     ),

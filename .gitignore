@@ -10,3 +10,4 @@ package-lock.json
 *.sln
 chromeExtension
 config/*.js
+tsconfig.tsbuildinfo

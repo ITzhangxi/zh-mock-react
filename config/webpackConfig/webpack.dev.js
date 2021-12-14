@@ -3,6 +3,7 @@ import commonConfig from './webpack.common';
 import chromeConfig from './webpack.chrome';
 import reactConfig from './webpack.react';
 import reloadServer from './reloadServer';
+import CompilerEmitPlugin from './plugins/CompilerEmitPlugin';
 
 const config = {
   target: 'web',
@@ -15,6 +16,7 @@ const config = {
     port: 9080,
     client: {
       progress: true,
+      webSocketURL: 'ws://localhost:9080/ws',
     },
     devMiddleware: {
       writeToDisk: true,
@@ -23,6 +25,7 @@ const config = {
       reloadServer(app);
     },
   },
+  plugins: [new CompilerEmitPlugin()],
 };
 
 export default merge(commonConfig, chromeConfig, reactConfig, config);

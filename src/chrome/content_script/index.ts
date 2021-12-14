@@ -1,3 +1,5 @@
+import { contentClient } from '../utils';
+
 document.addEventListener('DOMContentLoaded', function () {
   injectJsToDom('inject/index.js');
 });
@@ -11,3 +13,10 @@ function injectJsToDom(path) {
   script.src = chrome.extension.getURL(path);
   document.body.appendChild(script);
 }
+
+contentClient.listen('refresh page', (_res, sendResponse) => {
+  sendResponse('received refresh cmd');
+  setTimeout(() => {
+    window.location.reload();
+  }, 500);
+});

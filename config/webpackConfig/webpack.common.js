@@ -11,7 +11,7 @@ const config = {
     panel: paths.panelTsx,
   },
   output: {
-    publicPath: '../',
+    publicPath: '/',
     filename: (chunkData) => {
       const name = chunkData.chunk.name;
       return name !== 'panel' ? `${name}/index.js` : `${name}/index.[contenthash:8].js`;
