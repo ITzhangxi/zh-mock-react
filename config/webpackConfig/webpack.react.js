@@ -7,12 +7,14 @@ const config = {
     panel: paths.panelTsx,
     popup: paths.popupTSX,
     background: paths.backgroundTSX,
+    devtools: paths.devtoolsTS,
   },
   resolve: {
     alias: {
       panel: paths.panel,
       popup: paths.popup,
       background: paths.background,
+      devtools: paths.devtools,
     },
   },
   plugins: [
@@ -43,6 +45,16 @@ const config = {
           chunks: ['background'],
           template: paths.backgroundHtml,
           filename: 'background/index.html',
+        }
+      )
+    ),
+    new HtmlWebpackPlugin(
+      Object.assign(
+        { HtmlWebpackPluginOptions },
+        {
+          chunks: ['devtools'],
+          template: paths.devtoolsHtml,
+          filename: 'devtools/index.html',
         }
       )
     ),

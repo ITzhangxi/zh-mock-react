@@ -11,9 +11,10 @@ const config = {
     panel: paths.panelTsx,
   },
   output: {
+    publicPath: '../',
     filename: (chunkData) => {
       const name = chunkData.chunk.name;
-      return name !== 'panel' ? `js/${name}.js` : `js/${name}.[contenthash:8].js`;
+      return name !== 'panel' ? `${name}/index.js` : `${name}/index.[contenthash:8].js`;
     },
     path: paths.output,
   },
@@ -126,7 +127,11 @@ const config = {
       async: false,
     }),
     new CleanWebpackPlugin(),
-    new CopyManifestWebpackPlugin(),
+    new CopyManifestWebpackPlugin({
+      manifest: paths.manifest,
+      icon: paths.icon,
+      locales: paths.locales,
+    }),
   ],
 };
 export default config;

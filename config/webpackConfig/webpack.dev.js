@@ -2,6 +2,7 @@ import { merge } from 'webpack-merge';
 import commonConfig from './webpack.common';
 import chromeConfig from './webpack.chrome';
 import reactConfig from './webpack.react';
+import reloadServer from './reloadServer';
 
 const config = {
   target: 'web',
@@ -11,12 +12,15 @@ const config = {
     compress: true,
     hot: true,
     host: '0.0.0.0',
-    port: 9090,
+    port: 9080,
     client: {
       progress: true,
     },
     devMiddleware: {
       writeToDisk: true,
+    },
+    onBeforeSetupMiddleware({ app }) {
+      reloadServer(app);
     },
   },
 };

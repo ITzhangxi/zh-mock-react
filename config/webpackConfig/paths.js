@@ -6,25 +6,29 @@ const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath);
 
 export default {
   // 文件
-  panelTsx: resolveApp('src/panel/index.tsx'),
-  backgroundTSX: resolveApp('src/background/index.tsx'),
-  popupTSX: resolveApp('src/popup/index.tsx'),
-  devtoolsTS: resolveApp('src/devtools/index.ts'),
-  backgroundTS: resolveApp('src/background/index.ts'),
-  content_scriptTS: resolveApp('src/content_script/index.ts'),
+  panelTsx: resolveApp('src/chrome/panel/index.tsx'),
+  backgroundTSX: resolveApp('src/chrome/background/index.tsx'),
+  popupTSX: resolveApp('src/chrome/popup/index.tsx'),
+  devtoolsTS: resolveApp('src/chrome/devtools/index.ts'),
+  content_scriptTS: resolveApp('src/chrome/content_script/index.ts'),
+  manifest: resolveApp('src/chrome/manifest.json'),
+  icon: resolveApp('src/chrome/icon.png'),
+  injectTS: resolveApp('src/chrome/inject/index.ts'),
 
   // 文件夹
   src: resolveApp('src'),
-  panel: resolveApp('src/panel'),
-  background: resolveApp('src/background'),
-  content_script: resolveApp('src/content_script'),
-  devtools: resolveApp('src/devtools'),
-  popup: resolveApp('src/popup'),
+  panel: resolveApp('src/chrome/panel'),
+  background: resolveApp('src/chrome/background'),
+  content_script: resolveApp('src/chrome/content_script'),
+  devtools: resolveApp('src/chrome/devtools'),
+  popup: resolveApp('src/chrome/popup'),
   output: resolveApp('chromeExtension'),
   chromeImg: resolveApp('src/img'),
+  locales: resolveApp('src/chrome/_locales'),
 
   // html temp
-  panelHtml: resolveApp('src/panel/index.html'),
-  popupHtml: resolveApp('src/popup/index.html'),
-  backgroundHtml: resolveApp('src/background/index.html'),
+  panelHtml: resolveApp('src/chrome/panel/index.html'),
+  popupHtml: resolveApp('src/chrome/popup/index.html'),
+  backgroundHtml: resolveApp('src/chrome/background/index.html'),
+  devtoolsHtml: resolveApp('src/chrome/devtools/index.html'),
 };

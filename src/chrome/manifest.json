@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "zh-mock",
-  "version": ".0.0",
+  "name": "zh-mock-react",
+  "version": "1.0.0",
   "description": "这是一个为前端程序员API调试的快捷MOCK工具",
   "icons": {
     "6": "icon.png",
@@ -23,9 +23,17 @@
       "run_at": "document_start"
     }
   ],
-  "permissions": ["storage"],
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "activeTab",
+    "storage",
+    "background",
+    "tabCapture",
+    "<all_urls>"
+  ],
   "web_accessible_resources": ["inject/index.js", "inject/proxy_ajax.js"],
-  "homepage_url": "",
+  "homepage_url": "https://www.baidu.com",
   "default_locale": "zh_CN",
   "devtools_page": "devtools/index.html"
 }

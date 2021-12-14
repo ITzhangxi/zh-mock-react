@@ -9,3 +9,4 @@ package-lock.json
 *.njsproj
 *.sln
 chromeExtension
+config/*.js
