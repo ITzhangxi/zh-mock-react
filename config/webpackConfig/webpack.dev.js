@@ -4,7 +4,7 @@ import chromeConfig from './webpack.chrome';
 import reactConfig from './webpack.react';
 import reloadServer from './reloadServer';
 import CompilerEmitPlugin from './plugins/CompilerEmitPlugin';
-
+global.resSet = new Set();
 const config = {
   target: 'web',
   mode: 'development',
@@ -21,6 +21,7 @@ const config = {
     devMiddleware: {
       writeToDisk: true,
     },
+    webSocketServer: false,
     onBeforeSetupMiddleware({ app }) {
       reloadServer(app);
     },

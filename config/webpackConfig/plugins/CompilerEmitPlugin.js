@@ -1,3 +1,4 @@
+export const pluginName = 'CompilerEmitPlugin';
 export default class CompilerEmitPlugin {
   static innerCompiler;
 
@@ -5,5 +6,3 @@ export default class CompilerEmitPlugin {
     CompilerEmitPlugin.innerCompiler = compiler;
   }
 }
-
-module.exports = CompilerEmitPlugin;
