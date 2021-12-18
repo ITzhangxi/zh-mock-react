@@ -7,10 +7,11 @@
   "author": "zackxizi <zackxizi@qq.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack -c config/webpack.common.js",
-    "dev": "webpack serve -c config/webpack.dev.js",
+    "build": "yarn build:config;webpack -c config/webpack.common.js",
+    "dev": "yarn build:config;webpack serve -c config/webpack.dev.js",
     "prepare": "husky install",
-    "build:config": "rollup -c -w"
+    "build:configW": "rollup -c -w",
+    "build:config": "rollup -c"
   },
   "devDependencies": {
     "@babel/core": "^7.13.8",
