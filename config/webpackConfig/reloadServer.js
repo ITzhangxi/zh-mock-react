@@ -44,9 +44,9 @@ const reloadServer = () => {
 
     if (compiler) {
       if (compiler.hooks) {
-        compiler.hooks.done.tap(pluginName, reloadPlugin);
+        compiler.hooks.done.tap(pluginName, () => setTimeout(() => reloadPlugin(), 500));
       } else {
-        compiler.plugin('done', reloadPlugin);
+        compiler.plugin('done', () => setTimeout(() => reloadPlugin(), 500));
       }
     }
   });
