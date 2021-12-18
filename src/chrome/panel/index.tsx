@@ -1,5 +1,12 @@
-import React from 'react';
-import ReactDom from 'react-dom';
 import './utils/reload';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
 
-ReactDom.render(<h1>hello </h1>, document.getElementById('root'));
+ReactDOM.render(
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
+  document.getElementById('root')
+);
