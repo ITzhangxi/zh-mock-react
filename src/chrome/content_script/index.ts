@@ -15,9 +15,7 @@ function injectJsToDom(path) {
 }
 
 contentClient.listen('refresh page', (_res, sendResponse) => {
-  console.log('==============', 'refresh page');
   sendResponse('received refresh cmd');
-  debugger;
   setTimeout(() => {
     window.location.reload();
   }, 500);

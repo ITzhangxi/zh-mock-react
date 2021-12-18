@@ -13,3 +13,11 @@ export const HtmlWebpackPluginOptions = {
   },
   inject: true,
 };
+
+export const serverConfig = {
+  reloadPort: 62222,
+  reloadHost: 'localhost',
+  reloadEvent: 'server-reload',
+  devPort: 61111,
+  devHost: 'localhost',
+};

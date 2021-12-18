@@ -4,7 +4,8 @@ import chromeConfig from './webpack.chrome';
 import reactConfig from './webpack.react';
 import reloadServer from './reloadServer';
 import CompilerEmitPlugin from './plugins/CompilerEmitPlugin';
-global.resSet = new Set();
+import { serverConfig } from './config';
+
 const config = {
   target: 'web',
   mode: 'development',
@@ -12,18 +13,19 @@ const config = {
   devServer: {
     compress: true,
     hot: true,
-    host: '0.0.0.0',
-    port: 9080,
+    host: serverConfig.devHost,
+    port: serverConfig.devPort,
     client: {
       progress: true,
-      webSocketURL: 'ws://localhost:9080/ws',
+      webSocketURL: `ws://${serverConfig.devHost}:${serverConfig.devPort}/ws`,
     },
+    // webSocketServer: false,
     devMiddleware: {
       writeToDisk: true,
     },
     webSocketServer: false,
-    onBeforeSetupMiddleware({ app }) {
-      reloadServer(app);
+    onAfterSetupMiddleware() {
+      reloadServer();
     },
   },
   plugins: [new CompilerEmitPlugin()],

@@ -5,6 +5,8 @@ import ReactRefreshTypeScript from 'react-refresh-typescript';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyManifestWebpackPlugin from './plugins/CopyManifestWebpackPlugin';
+import { serverConfig } from './config';
+import webpack from 'webpack';
 
 const config = {
   entry: {
@@ -112,11 +114,9 @@ const config = {
     //   resource.request = resource.request.replace(/\._locale_/, `.${process.env.LANG_ENV}`);
     // }),
     // new webpack.HotModuleReplacementPlugin(), // with hot is true, we donot need this plugin.
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     ...RUNTIME_CONFIG,
-    //   },
-    // }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify({ ...serverConfig }),
+    }),
     new ReactRefreshWebpackPlugin(), // HMR in dev
     new ESLintPlugin({
       extensions: ['tsx', 'ts', 'jsx', 'js'],
