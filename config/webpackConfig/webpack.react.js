@@ -11,10 +11,10 @@ const config = {
   },
   resolve: {
     alias: {
-      panel: paths.panel,
-      popup: paths.popup,
-      background: paths.background,
-      devtools: paths.devtools,
+      '@panel': paths.panel,
+      '@popup': paths.popup,
+      '@background': paths.background,
+      '@devtools': paths.devtools,
     },
   },
   plugins: [

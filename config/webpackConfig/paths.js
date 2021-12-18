@@ -25,6 +25,7 @@ export default {
   output: resolveApp('chromeExtension'),
   chromeImg: resolveApp('src/img'),
   locales: resolveApp('src/chrome/_locales'),
+  chrome: resolveApp('src/chrome'),
 
   // html temp
   panelHtml: resolveApp('src/chrome/panel/index.html'),

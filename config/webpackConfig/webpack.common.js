@@ -9,9 +9,6 @@ import { serverConfig } from './config';
 import webpack from 'webpack';
 
 const config = {
-  entry: {
-    panel: paths.panelTsx,
-  },
   output: {
     publicPath: '/',
     filename: (chunkData) => {
@@ -24,7 +21,7 @@ const config = {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
       '@': paths.src,
-      panel: paths.panel,
+      '@chrome': paths.chrome,
     },
   },
   module: {
