@@ -1,4 +1,5 @@
 import { contentClient } from '../utils';
+import { reloadEvent } from '../utils/reloadEvent';
 
 document.addEventListener('DOMContentLoaded', function () {
   injectJsToDom('inject/index.js');
@@ -18,5 +19,5 @@ contentClient.listen('refresh page', (_res, sendResponse) => {
   sendResponse('received refresh cmd');
   setTimeout(() => {
     window.location.reload();
-  }, 500);
+  }, 1000);
 });
