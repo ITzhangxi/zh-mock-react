@@ -1,25 +1,32 @@
 import * as React from 'react';
+import { RouteObject, Navigate } from 'react-router-dom';
 import Home from '../views/home';
 import Mock from '../views/mock';
 import MockConfig from '../views/mockConfig';
+import App from '../App';
 
-export interface RouterConfig {
-  path: string;
-  Element: React.FC;
-  children?: Array<RouterConfig>;
-}
-const routerConfig: Array<RouterConfig> = [
+const routerConfig: RouteObject[] = [
   {
     path: '/',
-    Element: Home,
-  },
-  {
-    path: '/mock',
-    Element: Mock,
-  },
-  {
-    path: '/mock-config',
-    Element: MockConfig,
+    element: React.createElement(App),
+    children: [
+      {
+        path: '/home',
+        element: React.createElement(Home),
+      },
+      {
+        path: '/mock',
+        element: React.createElement(Mock),
+      },
+      {
+        path: '/mock-config',
+        element: React.createElement(MockConfig),
+      },
+      {
+        path: '*',
+        element: React.createElement(Navigate, { to: '/mock' }),
+      },
+    ],
   },
 ];
 
