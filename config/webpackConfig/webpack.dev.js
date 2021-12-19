@@ -19,7 +19,6 @@ const config = {
       progress: true,
       webSocketURL: `ws://${serverConfig.devHost}:${serverConfig.devPort}/ws`,
     },
-    // webSocketServer: false,
     devMiddleware: {
       writeToDisk: true,
     },

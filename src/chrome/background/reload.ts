@@ -2,7 +2,7 @@ import { reloadEvent } from '../utils/reloadEvent';
 import { backgroundClient, ChromeMessage, reload } from '../utils';
 
 reloadEvent(() => {
-  reload();
+  // setTimeout()
   chrome.tabs.query({ active: true }, async (tabs) => {
     if (tabs.length > 0) {
       //   debugger;
