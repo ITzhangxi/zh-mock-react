@@ -9,13 +9,12 @@
     "lib": ["dom", "dom.iterable", "esnext"], // List of library files to be included in the compilation
     "baseUrl": ".",
     "paths": {
-      "@": ["src/*"],
-      "@panel": ["src/chrome/panel/*"],
-      "@background": ["src/chrome/background/*"],
-      "@content_script": ["src/chrome/content_script/*"],
-      "@devtools": ["src/chrome/devtools/*"],
-      "@popup": ["src/chrome/popup/*"],
-      "@chrome": ["src/chrome/*"]
+      "*": ["*"],
+      "panel": ["src/chrome/panel/*"],
+      "background": ["src/chrome/background/*"],
+      "content_script": ["src/chrome/content_script/*"],
+      "devtools": ["src/chrome/devtools/*"],
+      "popup": ["src/chrome/popup/*"]
     },
     "allowJs": false, // Allow JavaScript files to be compiled
     "skipLibCheck": true, // Skip type checking of all declaration files
@@ -38,6 +37,6 @@
     "experimentalDecorators": true,
     "noImplicitAny": false
   },
-  "include": ["src", "*.d.ts"],
+  "include": ["src", ".less.d.ts", "*.d.ts", "src/**/*"],
   "exclude": ["node_modules", "chromeExtension"] // *** The files to not type check ***
 }

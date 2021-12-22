@@ -8,9 +8,9 @@ const config = {
   },
   resolve: {
     alias: {
-      '@background': paths.background,
-      '@content_script': paths.content_script,
-      '@inject': paths.injectTS,
+      background: paths.background,
+      content_script: paths.content_script,
+      inject: paths.injectTS,
     },
   },
 };

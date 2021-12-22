@@ -20,8 +20,7 @@ const config = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx', '.json'],
     alias: {
-      '@': paths.src,
-      '@chrome': paths.chrome,
+      src: paths.src,
     },
   },
   module: {
