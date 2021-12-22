@@ -23,10 +23,14 @@ const routerConfig: RouteObject[] = [
         element: React.createElement(MockConfig),
       },
       {
-        path: '*',
-        element: React.createElement(Navigate, { to: '/mock' }),
+        path: '/',
+        element: React.createElement(Navigate, { to: '/mock', replace: true }),
       },
     ],
+  },
+  {
+    path: '*',
+    element: React.createElement(Navigate, { to: '/mock', replace: true }),
   },
 ];
 
