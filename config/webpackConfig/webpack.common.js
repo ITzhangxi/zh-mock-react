@@ -42,7 +42,11 @@ const config = {
           },
           {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: {
+                localIdentName: '[local]-[hash:5]',
+              },
+            },
           },
           {
             loader: 'less-loader',
