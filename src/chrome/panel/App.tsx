@@ -6,8 +6,6 @@ import styles from './index.less';
 function App() {
   return (
     <div className={styles.app}>
-      {/* <Link to="/home">home---</Link> --|--
-      <Link to="/mock">mock</Link> --|-- <Link to="/mock-config">mock-config</Link> */}
       <Layout>
         <Outlet />
       </Layout>

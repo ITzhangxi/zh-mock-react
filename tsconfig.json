@@ -37,6 +37,6 @@
     "experimentalDecorators": true,
     "noImplicitAny": false
   },
-  "include": ["src", "*/**/*.d.ts", "src/**/*"],
+  "include": ["*/**/*.d.ts", "src/**/*"],
   "exclude": ["node_modules", "chromeExtension"] // *** The files to not type check ***
 }

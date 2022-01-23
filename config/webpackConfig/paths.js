@@ -13,6 +13,7 @@ export default {
   content_scriptTS: resolveApp('src/chrome/content_script/index.ts'),
   manifest: resolveApp('src/chrome/manifest.json'),
   icon: resolveApp('src/chrome/icon.png'),
+  linkIcon: resolveApp('src/chrome/icon.ico'),
   injectTS: resolveApp('src/chrome/inject/index.ts'),
 
   // 文件夹

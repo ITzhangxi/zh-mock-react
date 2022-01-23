@@ -36,6 +36,7 @@ const config = {
           template: paths.panelHtml,
           filename: 'panel/index.html',
           publicPath: '../',
+          icon: paths.linkIcon,
         }
       )
     ),

@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.less';
 import logo from 'src/img/logo.png';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   return (

@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { HashRouter, useRoutes } from 'react-router-dom';
 import routerConfig from './router';
-import 'antd/dist/antd.less';
+import 'antd/dist/antd.css';
 
 function Index() {
   const element = useRoutes(routerConfig);
