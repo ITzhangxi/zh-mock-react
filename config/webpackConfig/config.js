@@ -20,4 +20,5 @@ export const serverConfig = {
   reloadEvent: 'server-reload',
   devPort: 61111,
   devHost: 'localhost',
+  progress: true,
 };

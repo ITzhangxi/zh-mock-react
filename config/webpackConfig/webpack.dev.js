@@ -16,7 +16,7 @@ const config = {
     host: serverConfig.devHost,
     port: serverConfig.devPort,
     client: {
-      progress: true,
+      progress: serverConfig.progress,
       webSocketURL: `ws://${serverConfig.devHost}:${serverConfig.devPort}/ws`,
     },
     devMiddleware: {

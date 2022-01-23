@@ -50,6 +50,7 @@ const config = {
             options: {
               lessOptions: {
                 javascriptEnabled: true,
+                webpackImporter: false,
               },
             },
           },
