@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './index.less';
-import { Table, Space } from 'antd';
+import { Table, Space, Button } from 'antd';
 import Search from './search';
+import FormMock from './formMock';
 const columns = [
   {
     title: 'Name',
@@ -51,12 +52,24 @@ const Mock = () => {
       ro.observe(tableWrapper.current);
     }
   }, [ro]);
+
+  const [visible, setVisible] = useState(false);
+
   return (
     <>
-      <Search />
+      <Search
+        btn={
+          <>
+            <Button type="dashed" onClick={() => setVisible(true)}>
+              新增
+            </Button>
+          </>
+        }
+      />
       <div ref={tableWrapper} className={`box-wrapper ${styles.tableWrapper}`}>
         <Table columns={columns} dataSource={data} scroll={{ y: tableY }} />
       </div>
+      <FormMock title="新增 mock 数据" visible={visible} onClose={() => setVisible(false)} />
     </>
   );
 };

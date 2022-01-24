@@ -2,7 +2,7 @@
  * @Description: 搜索
  * @Author: xi_zi
  * @Date: 2022-01-23 23:06:47
- * @LastEditTime: 2022-01-24 00:56:24
+ * @LastEditTime: 2022-01-24 23:16:01
  * @LastEditors: xi_zi
  */
 
@@ -50,7 +50,11 @@ function Expand({ config, setExpand, expand }: IExpandProps) {
     </>
   );
 }
-const Search = () => {
+
+interface ISearchProps {
+  btn?: JSX.Element;
+}
+const Search = ({ btn }: ISearchProps) => {
   const [expand, setExpand] = useState(false);
   const [form] = Form.useForm();
 
@@ -84,13 +88,15 @@ const Search = () => {
             搜索
           </Button>
           <Button
-            style={{ margin: '0 8px' }}
+            style={{ marginLeft: '8px' }}
             onClick={() => {
               form.resetFields();
             }}>
             清除
           </Button>
           <Expand config={config} setExpand={setExpand} expand={expand} />
+          <span style={{ margin: '0 8px' }}>|</span>
+          {btn}
         </Col>
       </Row>
     </Form>
