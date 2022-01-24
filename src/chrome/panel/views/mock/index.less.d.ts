@@ -2,7 +2,7 @@
 // Please do not change this file!
 declare namespace IndexLessNamespace {
   export interface IIndexLess {
-    wrapper: string;
+    tableWrapper: string;
   }
 }
 
