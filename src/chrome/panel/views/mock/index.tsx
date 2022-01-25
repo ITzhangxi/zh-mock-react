@@ -53,7 +53,7 @@ const Mock = () => {
     }
   }, [ro]);
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState<boolean>(true);
 
   return (
     <>

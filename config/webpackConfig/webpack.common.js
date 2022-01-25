@@ -7,6 +7,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import CopyManifestWebpackPlugin from './plugins/CopyManifestWebpackPlugin';
 import { serverConfig } from './config';
 import webpack from 'webpack';
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 
 const config = {
   output: {
@@ -141,6 +142,9 @@ const config = {
       locales: paths.locales,
     }),
     new webpack.WatchIgnorePlugin({ paths: [/less\.d\.ts$/, /less\.module\.d\.ts$/] }),
+    new MonacoWebpackPlugin({
+      languages: ['typescript', 'javascript', 'json'],
+    }),
   ],
 };
 export default config;
